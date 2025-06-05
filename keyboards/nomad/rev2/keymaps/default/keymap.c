@@ -70,7 +70,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // +--------+--------+--------+--------+--------+--------+--------|                      |--------+--------+--------+--------+--------+--------+--------|
             KC_TAB,   KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,   CC_LBRC,                        CC_RBRC, KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_UNDS,
         // +--------+--------+--------+--------+--------+--------+--------|                      |--------+--------+--------+--------+--------+--------+--------|
-            KC_RPRN,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,   CC_PIPE,                        DE_MINS, KC_H,    KC_J,    KC_K,    KC_L,    DE_PLUS, KC_BSLS,
+            KC_RPRN,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,   CC_PIPE,                        KC_MINS, KC_H,    KC_J,    KC_K,    KC_L,    KC_PLUS, KC_BSLS,
         // +--------+--------+--------+--------+--------+--------+--------+--------.    ,------- +--------+--------+--------+--------+--------+--------+--------|
             SC_LSPO,  KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,             KC_DEL,      OSL(1),           KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_UP,   SC_RSPC,
         // +--------+--------+--------+--------+--------+--------+--------+--------+    +--------+--------+--------+--------+--------+--------+--------+--------|
@@ -84,7 +84,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // |--------+--------+--------+--------+--------+--------+--------|                      |--------+--------+--------+--------+--------+--------+--------|
             _______, _______, _______, CC_EURO, _______, _______, CC_LSBR,                        CC_RSBR, _______, _______, _______, _______, _______, _______,
         // |--------+--------+--------+--------+--------+--------+--------|                      |--------+--------+--------+--------+--------+--------+--------|
-            _______, _______, DE_SS,   _______, _______, _______, CC_BSLS,                        _______, _______, _______, _______, CC_AT,   _______, _______,
+            _______, _______, _______,   _______, _______, _______, CC_BSLS,                        _______, _______, _______, _______, CC_AT,   _______, _______,
         // +--------+--------+--------+--------+--------+--------+--------+--------.    ,------- +--------+--------+--------+--------+--------+--------+--------|
             _______, _______, _______, _______, _______, _______,          _______,      _______,          CC_TILD, _______, _______, _______, _______, _______,
         // |--------+--------+--------+--------+--------+--------+--------+--------+    +--------+--------+--------+--------+--------+--------+--------+--------|
@@ -158,9 +158,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 if (current_os == OS_MACOS) {
                     tap_code16(ROPT(KC_7));
                 }
-                else {
-                    tap_code16(ROPT(DE_LABK));
-                }
                 return false;
             case CC_LBRC:
                 if (current_os == OS_MACOS) {
@@ -182,16 +179,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 if (current_os == OS_MACOS) {
                     tap_code16(KC_GRV);
                 }
-                else {
-                    tap_code16(DE_LABK);
-                }
                 return false;
             case CC_RABR:
                 if (current_os == OS_MACOS) {
                     tap_code16(RSFT(KC_GRV));
-                }
-                else {
-                    tap_code16(DE_RABK);
                 }
                 return false;
             case CC_AT:
@@ -206,24 +197,15 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 if (current_os == OS_MACOS) {
                     tap_code16(ROPT(KC_N));
                 }
-                else {
-                    tap_code16(DE_TILD);
-                }
                 return false;
             case CC_CIRC:
                 if (current_os == OS_MACOS) {
                     tap_code16(KC_NUBS);
                 }
-                else {
-                    tap_code16(DE_CIRC);
-                }
                 return false;
             case CC_DEGR:
                 if (current_os == OS_MACOS) {
                     tap_code16(LSFT(KC_NUBS));
-                }
-                else {
-                    tap_code16(LSFT(DE_CIRC));
                 }
                 return false;
             case CC_BTCK:
